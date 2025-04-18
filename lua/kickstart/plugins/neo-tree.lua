@@ -14,6 +14,8 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    source_selector = { winbar = true },
+    sources = { 'filesystem', 'git_status', 'document_symbols' },
     filesystem = {
       window = {
         mappings = {
