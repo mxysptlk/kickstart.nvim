@@ -662,7 +662,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        -- clangd = { cmd = '/usr/local/bin/clangd' },
         bashls = {},
         yamlls = {},
         pylsp = {
@@ -670,9 +670,9 @@ require('lazy').setup({
             pylsp = {
               plugins = {
                 ruff = { enabled = true },
-                flake8 = { enabled = false },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
+                -- flake8 = { enabled = false },
+                -- pyflakes = { enabled = false },
+                -- pycodestyle = { enabled = false },
               },
             },
           },
@@ -689,20 +689,20 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
-        lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
-            },
-          },
-        },
+        -- lua_ls = {
+        --   -- cmd = { ... },
+        --   -- filetypes = { ... },
+        --   -- capabilities = {},
+        --   settings = {
+        --     Lua = {
+        --       completion = {
+        --         callSnippet = 'Replace',
+        --       },
+        --       -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+        --       -- diagnostics = { disable = { 'missing-fields' } },
+        --     },
+        --   },
+        -- },
       }
 
       -- Ensure the servers and tools above are installed
@@ -719,9 +719,9 @@ require('lazy').setup({
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
+      -- vim.list_extend(ensure_installed, {
+      --   'stylua', -- Used to format Lua code
+      -- })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
